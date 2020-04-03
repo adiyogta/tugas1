@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -22,7 +24,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextInputEditText namaD, namaB, tempatL, tglLahir, alamat, telfon, email ,pass1, pass2;
+    EditText namaD, namaB, tempatL, tglLahir, alamat, telfon, email;
+    EditText pass1, pass2;
     RadioGroup rgSex, rgAgama;
     RadioButton sexL, sexP;
     RadioButton agama1, agama2, agama3, agama4, agama5, agama6, agama7;
@@ -41,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         myCalendar = Calendar.getInstance();
 
-        namaD = (TextInputEditText ) findViewById(R.id.editFN);
-        namaB = (TextInputEditText ) findViewById(R.id.editLN);
-        tempatL = (TextInputEditText ) findViewById(R.id.editTL);
-        tglLahir = (TextInputEditText ) findViewById(R.id.editTTL);
-        alamat = (TextInputEditText ) findViewById(R.id.editAlamat);
+        namaD = (EditText) findViewById(R.id.editFN);
+        namaB = (EditText ) findViewById(R.id.editLN);
+        tempatL = (EditText ) findViewById(R.id.editTL);
+        tglLahir = (EditText ) findViewById(R.id.editTTL);
+        alamat = (EditText ) findViewById(R.id.editAlamat);
         sexL = (RadioButton) findViewById(R.id.radioMale);
         sexP = (RadioButton) findViewById(R.id.radioFemale);
         agama1  = (RadioButton) findViewById(R.id.islam);
@@ -55,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
         agama5  = (RadioButton) findViewById(R.id.bd);
         agama6 = (RadioButton) findViewById(R.id.kong);
         agama7  = (RadioButton) findViewById(R.id.aliran);
-        telfon = (TextInputEditText ) findViewById(R.id.editTelp);
-        email = (TextInputEditText ) findViewById(R.id.editEmail);
-//        pass1 = (TextInputEditText) findViewById(R.id.editPass);
-//        pass2 = (TextInputEditText ) findViewById(R.id.editPass2);
+        telfon = (EditText ) findViewById(R.id.editTelp);
+        email = (EditText ) findViewById(R.id.editEmail);
+        hasil  = (TextView) findViewById(R.id.txt_hasil);
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener(){
             @Override
@@ -87,21 +89,7 @@ public class MainActivity extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hasil  = (TextView) findViewById(R.id.txt_hasil);
-
-                namaDe = namaD.getText().toString();
-                namaBe = namaB.getText().toString();
-                TLahir = tempatL.getText().toString();
-                tglLahirr = tglLahir.getText().toString();
-                alamaat = alamat.getText().toString();
-//                sexx = sexP.getText().toString();
-//                agamaa = agama1.getText().toString();
-                notelfon = telfon.getText().toString();
-                emaiil = email.getText().toString();
-
-//                hasil.setText(namaDe+namaBe+TLahir+tglLahirr+alamaat+notelfon+emaiil);
-                showDialog2();
-
+                showDialog();
             }
         });
     }
@@ -114,65 +102,62 @@ public class MainActivity extends AppCompatActivity {
         tglLahir.setText(sdf.format(myCalendar.getTime()));
     }
 
-//    private void showDialog(){
-//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-//                this);
-//
-//        // set title dialog
-//        alertDialogBuilder.setTitle("Konfirmasi");
-//
-//        // set pesan dari dialog
-//        alertDialogBuilder
-//                .setMessage("Apakah Data yang anda masukkan sudah benar ?")
-//                .setIcon(R.mipmap.ic_launcher)
-//                .setCancelable(false)
-//                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog,int id) {
-//                        showDialog2();
-//                    }
-//                })
-//                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
-//
-//        // membuat alert dialog dari builder
-//        AlertDialog alertDialog = alertDialogBuilder.create();
-//
-//        // menampilkan alert dialog
-//        alertDialog.show();
-//    }
-//
-    private void showDialog2(){
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
 
+        // set title dialog
+        alertDialogBuilder.setTitle("Konfirmasi");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Apakah Data yang anda masukkan sudah benar ?")
+                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        showDialog2();
+                    }
+                })
+                .setView(R.layout.hasil)
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
+    }
+    private void showDialog2(){
         dialog = new AlertDialog.Builder(MainActivity.this);
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.hasil, null);
-        dialog.setView(dialogView);
+        dialog.setView(R.layout.hasil);
         dialog.setCancelable(true);
         dialog.setIcon(R.mipmap.ic_launcher);
         dialog.setTitle("Detail Pendaftaran");
 
         hasil  = (TextView) findViewById(R.id.txt_hasil);
 
-        hasil.setText(namaDe+namaBe+TLahir+tglLahirr+alamaat+notelfon+emaiil);
+        namaDe = namaD.getText().toString();
+        namaBe = namaB.getText().toString();
+        TLahir = tempatL.getText().toString();
+        tglLahirr = tglLahir.getText().toString();
+        alamaat = alamat.getText().toString();
+//                sexx = sexP.getText().toString();
+//                agamaa = agama1.getText().toString();
+        notelfon = telfon.getText().toString();
+        emaiil = email.getText().toString();
 
-        oke = (Button) findViewById(R.id.oke_btn);
-        oke.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.this.finish();
-            }
-        });
-
-        keluar = (Button) findViewById(R.id.keluar_btn);
-        keluar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                System.exit(0);
-            }
-        });
+        hasil.setText("Nama Depan : " + namaDe + "\n" +
+                      "Nama Belakang : "+ namaB + "\n" +
+                      "Tempat Tanggal Lahir : " + TLahir + ", " + tglLahirr + "\n" +
+                      "Alamat : " + alamaat + "\n" +
+                      "Jenis Kelamin : " + "\n" +
+                      "Agama : " + "\n" +
+                      "No Telfon : " + notelfon + "\n" +
+                      "Email : " + emaiil);
     }
 }

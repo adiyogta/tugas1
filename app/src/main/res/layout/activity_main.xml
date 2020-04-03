@@ -50,35 +50,24 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
 
-                        <com.google.android.material.textfield.TextInputLayout
+                        <EditText
+                            android:id="@+id/editFN"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/namaDepan">
+                            android:ems="9"
+                            android:hint="@string/namaDepan"
+                            android:inputType="textPersonName"/>
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editFN"
-                                android:layout_width="190dp"
-                                android:layout_height="wrap_content"
-                                android:inputType="text"
-                                android:nestedScrollingEnabled="false"
-                                android:textColor="@color/txt" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
+                        <EditText
+                            android:id="@+id/editLN"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/namaBelakang">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editLN"
-                                android:layout_width="190dp"
-                                android:layout_height="wrap_content"
-                                android:inputType="text"
-                                android:nestedScrollingEnabled="false"
-                                android:textColor="@color/txt" />
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:ems="9"
+                            android:hint="@string/namaBelakang"
+                            android:inputType="textPersonName"/>
 
                     </TableRow>
 
@@ -93,56 +82,33 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.google.android.material.textfield.TextInputLayout
+                        <EditText
+                            android:id="@+id/editTL"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/TL">
+                            android:ems="7"
+                            android:hint="@string/TL"
+                            android:inputType="textPersonName"/>
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editTL"
-                                android:layout_width="155dp"
-                                android:layout_height="wrap_content"
-                                android:inputType="text"
-                                android:nestedScrollingEnabled="false"
-                                android:textColor="@color/txt" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
+                        <EditText
+                            android:id="@+id/editTTL"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/tglL">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editTTL"
-                                android:layout_width="225dp"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:cursorVisible="false"
-                                android:editable="false"
-                                android:focusable="false"
-                                android:focusableInTouchMode="false"
-                                android:textColor="@color/txt" />
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:ems="11"
+                            android:hint="@string/tglL"
+                            android:inputType="textPersonName"/>
 
                     </TableRow>
 
                 </TableLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/editAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:hint="@string/alamat">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editAlamat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fadeScrollbars="false"
-                        android:inputType="textMultiLine"
-                        android:nestedScrollingEnabled="false"
-                        android:scrollbars="vertical" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:ems="18"
+                    android:hint="@string/alamat"
+                    android:inputType="textPersonName"/>
 
                 <TextView
                     android:id="@+id/textView4"
@@ -289,63 +255,41 @@
 
                 </RadioGroup>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/editTelp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:hint="@string/input_NoTelp">
+                    android:ems="18"
+                    android:hint="@string/input_NoTelp"
+                    android:inputType="phone"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editTelp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/editEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/email">
+                    android:ems="18"
+                    android:hint="@string/email"
+                    android:inputType="textPersonName"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
                     android:id="@+id/editPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ems="18"
+                    android:hint="@string/ps"
                     app:errorEnabled="true"
-                    app:passwordToggleEnabled="true">
+                    app:passwordToggleEnabled="true"
+                    android:inputType="textPassword"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password"
-                        android:inputType="textPassword" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
                     android:id="@+id/editPass2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ems="18"
+                    android:hint="@string/ps"
                     app:errorEnabled="true"
-                    app:passwordToggleEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password"
-                        android:inputType="textPassword" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:passwordToggleEnabled="true"
+                    android:inputType="textPassword"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
